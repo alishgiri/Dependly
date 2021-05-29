@@ -27,8 +27,8 @@ module.exports.readFile = (filename) => {
         return;
       }
       if (!contents.includes(dependsOnString)) {
-        reject(`readFile Error:: Invalid file '${filename}' detected.`);
-        return;
+        const errMsg = `readFile Error:: Invalid file '${filename}' detected.`;
+        throw Error(errMsg);
       }
       resolve(contents);
     });
