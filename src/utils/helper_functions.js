@@ -1,11 +1,11 @@
+const { logRelation } = require("./logger");
 const { dependsOnString } = require("./constants");
-const { logRelations } = require("./logger");
 
 function uniqueSortAndStringify(array) {
   return [...new Set(array.sort())].join(" ");
 }
 
-module.exports.createObjectFromFileData = (data) => {
+module.exports.createArrFromFileData = (data) => {
   const lines = data.split("\n");
   const extractedContents = [];
   lines.forEach((line) => {
@@ -22,6 +22,7 @@ module.exports.createObjectFromFileData = (data) => {
 
 module.exports.generateRelations = (arrData) => {
   let currentLib;
+  let relations = [];
   let currentDependencies;
 
   arrData.forEach((evalLib, evalIndx) => {
@@ -33,8 +34,12 @@ module.exports.generateRelations = (arrData) => {
         currentDependencies = [...currentDependencies, ...dependencies];
       }
     });
-    logRelations(
-      currentLib + dependsOnString + uniqueSortAndStringify(currentDependencies)
-    );
+
+    const uss = uniqueSortAndStringify(currentDependencies);
+    const relation = currentLib + dependsOnString + uss;
+    logRelation(relation);
+
+    relations.push(relation);
   });
+  return relations;
 };
