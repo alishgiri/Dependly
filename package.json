@@ -9,5 +9,7 @@
   "author": "Alish Giri <32293725+Alishgiri@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^27.0.2"
+  }
 }
