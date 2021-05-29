@@ -22,8 +22,12 @@ module.exports.readFile = (filename) => {
   return new Promise((resolve, reject) => {
     const filePath = path.join(rootFolderPath, filename);
     fs.readFile(filePath, "utf8", (err, contents) => {
-      if (err || !contents.includes(dependsOnString)) {
+      if (err) {
         reject(err);
+        return;
+      }
+      if (!contents.includes(dependsOnString)) {
+        reject(`readFile Error:: Invalid file '${filename}' detected.`);
         return;
       }
       resolve(contents);
