@@ -1,20 +1,25 @@
-const { readFile } = require("./utils/readFile");
+const _ = require("./utils/logger");
+const {
+  generateRelations,
+  createObjectFromFileData,
+} = require("./utils/helper_functions");
+const { readFile } = require("./utils/read_file");
+const { filesToProcess } = require("./utils/constants");
 
-console.log(" ");
-console.log("----------- Dependly -----------");
-console.log(" ");
+_.logAppStart();
 
-const extractDataFromFile = async (filename) => {
+const analyseDependencies = async (filename) => {
   try {
     const data = await readFile(filename);
-    console.log(data);
+    _.logFileAnaysis(filename);
+    const extractedContentObj = createObjectFromFileData(data);
+    generateRelations(extractedContentObj);
+    _.logEmptyLine();
   } catch (e) {
-    console.error(e);
+    _.logError(e);
   }
 };
 
-Promise.all([extractDataFromFile("input3")]).finally(() => {
-  console.log(" ");
-  console.log("----------- End -----------");
-  console.log(" ");
-});
+Promise.all([
+  ...filesToProcess.map((file) => analyseDependencies(file)),
+]).finally(() => _.logAppEnd());
