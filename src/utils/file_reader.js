@@ -21,12 +21,12 @@ module.exports.readFile = (filename) => {
   if (!filename) throw Error("No Filename provided!!");
   return new Promise((resolve, reject) => {
     const filePath = path.join(rootFolderPath, filename);
-    fs.readFile(filePath, "utf8", (err, data) => {
-      if (err || !data.includes(dependsOnString)) {
+    fs.readFile(filePath, "utf8", (err, contents) => {
+      if (err || !contents.includes(dependsOnString)) {
         reject(err);
         return;
       }
-      resolve(data);
+      resolve(contents);
     });
   });
 };

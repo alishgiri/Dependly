@@ -1,7 +1,7 @@
 const _ = require("./utils/logger");
 const {
   generateRelations,
-  createObjectFromFileData,
+  createArrFromFileData,
 } = require("./utils/helper_functions");
 const { readFile, getAllFiles } = require("./utils/file_reader");
 
@@ -13,8 +13,8 @@ const analyseDependencies = async () => {
     files.forEach(async (filename) => {
       const data = await readFile(filename);
       _.logFileAnaysis(filename);
-      const extractedContentObj = createObjectFromFileData(data);
-      generateRelations(extractedContentObj);
+      const extractedContentArr = createArrFromFileData(data);
+      generateRelations(extractedContentArr);
       _.logEmptyLine();
     });
   } catch (e) {

@@ -12,7 +12,7 @@ module.exports.logFileAnaysis = (filename) => {
   console.log("---------------------------");
 };
 
-module.exports.logRelations = (relation) => {
+module.exports.logRelation = (relation) => {
   console.log("-", relation);
 };
 
