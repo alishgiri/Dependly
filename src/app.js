@@ -1,6 +1,6 @@
 const _ = require("./utils/logger");
 const {
-  generateRelations,
+  generateRelationsFrom,
   createArrFromFileData,
 } = require("./utils/helper_functions");
 const { readFile, getAllFiles } = require("./utils/file_reader");
@@ -14,7 +14,7 @@ const analyseDependencies = async () => {
       const data = await readFile(filename);
       _.logFileAnaysis(filename);
       const extractedContentArr = createArrFromFileData(data);
-      generateRelations(extractedContentArr);
+      generateRelationsFrom(extractedContentArr);
       _.logEmptyLine();
     });
   } catch (e) {

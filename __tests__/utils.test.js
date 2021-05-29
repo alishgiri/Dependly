@@ -1,6 +1,6 @@
 const {
   createArrFromFileData,
-  generateRelations,
+  generateRelationsFrom,
 } = require("../src/utils/helper_functions");
 const { readFile, getAllFiles } = require("../src/utils/file_reader");
 
@@ -58,7 +58,7 @@ describe("Utility Functions Tests", () => {
     expect(convertedFileDataObj).toBeDefined();
     expect(convertedFileDataObj).not.toBeNull();
 
-    const relations = generateRelations(convertedFileDataObj);
+    const relations = generateRelationsFrom(convertedFileDataObj);
     expect(relations).toBeDefined();
     expect(relations).not.toBeNull();
 

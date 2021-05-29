@@ -20,7 +20,7 @@ module.exports.createArrFromFileData = (data) => {
   return extractedContents;
 };
 
-module.exports.generateRelations = (arrData) => {
+module.exports.generateRelationsFrom = (arrData) => {
   let currentLib;
   let relations = [];
   let currentDependencies;
