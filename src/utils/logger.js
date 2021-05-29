@@ -1,8 +1,8 @@
 module.exports.logAppStart = () => {
   console.log(" ");
-  console.log("@80,000 Hours");
+  console.log("    === DEPENDLY ===");
   console.log(" ");
-  console.log("           === DEPENDLY ===");
+  console.log("      80,000 Hours");
   console.log(" ");
 };
 
@@ -22,10 +22,4 @@ module.exports.logEmptyLine = () => {
 
 module.exports.logError = (error) => {
   console.error(error);
-};
-
-module.exports.logAppEnd = () => {
-  console.log(" ");
-  console.log("                === END ===");
-  console.log(" ");
 };
