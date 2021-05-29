@@ -10,7 +10,7 @@ _.logAppStart();
 const analyseDependencies = async () => {
   try {
     const files = await getAllFiles();
-    files.forEach(async (filename, index) => {
+    files.forEach(async (filename) => {
       const data = await readFile(filename);
       _.logFileAnaysis(filename);
       const extractedContentObj = createObjectFromFileData(data);
