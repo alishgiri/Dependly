@@ -1,5 +1,5 @@
-const { logRelation } = require("./logger");
 const { dependsOnString } = require("./constants");
+const { logRelation } = require("../services/logger");
 
 function uniqueSortAndStringify(array) {
   return [...new Set(array.sort())].join(" ");

@@ -1,4 +1,4 @@
-const _ = require("./utils/logger");
+const _ = require("./services/logger");
 const {
   generateRelationsFrom,
   createArrFromFileData,
