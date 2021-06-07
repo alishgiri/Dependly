@@ -3,7 +3,7 @@ const {
   generateRelationsFrom,
   createArrFromFileData,
 } = require("./utils/helper_functions");
-const { readFile, getAllFiles } = require("./utils/file_reader");
+const { readFile, getAllFiles } = require("./services/file_reader");
 
 _.logAppStart();
 

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const { dependsOnString } = require("./constants");
+const { dependsOnString } = require("../utils/constants");
 
 const rootFolderPath = path.join(__dirname, "..", "/input_files/");
 

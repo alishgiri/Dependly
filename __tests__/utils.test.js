@@ -2,9 +2,9 @@ const {
   createArrFromFileData,
   generateRelationsFrom,
 } = require("../src/utils/helper_functions");
-const { readFile, getAllFiles } = require("../src/utils/file_reader");
+const { readFile, getAllFiles } = require("../src/services/file_reader");
 
-describe("Utility Functions Tests", () => {
+describe("Service & Utility Functions Tests", () => {
   let convertedFileDataObj;
   let extractedFileContents;
   const filename = "INPUT2.txt";
